@@ -2,7 +2,7 @@
 code snippet of algorithm, system, network, etc.
 
 #### Algorithm
-- [x] string to integer
+- [x] [string to integer](algorithm/string_to_int.c)
 - [x] invert binary tree(iterative&recursive)
 - [x] title string of Excel column to number
 - [x] remove linked list elements
