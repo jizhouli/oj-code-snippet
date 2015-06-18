@@ -1,4 +1,4 @@
-## code-snippet
+## code snippet of Leet Code OJ
 code snippet of algorithm, system, network, etc.
 
 #### Algorithm
