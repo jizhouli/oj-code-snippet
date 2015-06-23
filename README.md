@@ -7,4 +7,5 @@ code snippet of algorithm, system, network, etc.
 - [x] title string of Excel column to number in [c](algorithm/title_to_number.c) & [c++](algorithm/title_to_number.cpp)
 - [x] remove linked list elements in [c](algorithm/remove_linked_list_elements.c)
 - [x] remove element in [c](algorithm/remove_element.c)
+- [x] theatre square in [c++](algorithm/theatre_square.cpp)
 
