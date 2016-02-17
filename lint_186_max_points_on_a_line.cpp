@@ -161,53 +161,39 @@ public:
                 map<Fraction, int>::iterator it = line_sum.find(slope_table[i][j]);
                 if (it == line_sum.end())
                     line_sum[slope_table[i][j]] = 1;
-                else {
+                else
                     it->second += 1;
-                    if (i==17) {
-                        cout << slope_table[i][j] << " "<< it->first << " " << it->second << endl;
-                    }
-                }
 
             }
 
             int line_max = 0;
             for (map<Fraction, int>::iterator it=line_sum.begin(); it!=line_sum.end(); ++it) {
                 if (it->second>line_max) {
-                    line_max = it->second;
-                    cout << it->first << " -> " << it->second << endl;
+                    /*
+                    if (it->first.is_null())
+                        line_max = it->second;
+                    else
+                    */
+                        line_max = it->second + 1;
                 }
             }
-            line_max += 1;
-            if (line_max > max) {
+            if (line_max > max)
                 max = line_max;
-                cout << i << " max " << max << endl;
-            }
         }
 
-        /*
         for (int i=0; i<size; i++)
             for (int j=0; j<size; j++) {
                 cout << slope_table[i][j] << " ";
                 if (j == size-1)
                     cout << endl;
             }
-        */
 
         return max;
     }
 };
 
 int main(int argc, char* argv[]) {
-    Point p1(1, 1);
-    Point p2(-2, -2);
-    Point p3(0, 3);
-    Point p4(0, 0);
-
     vector<Point> vp;
-    //vp.push_back(p1);
-    //vp.push_back(p2);
-    //vp.push_back(p3);
-    //vp.push_back(p4);
 
     vp.push_back(Point(-54,-297));
     vp.push_back(Point(-36,-222));
@@ -259,6 +245,16 @@ int main(int argc, char* argv[]) {
     vp.push_back(Point(-48,-272));
     vp.push_back(Point(36,78));
     vp.push_back(Point(-3,3));
+
+    vp.clear();
+    vp.push_back(Point(0,0));
+    vp.push_back(Point(0,0));
+
+    vp.clear();
+    vp.push_back(Point(1,2));
+    vp.push_back(Point(3,6));
+    vp.push_back(Point(0,0));
+    vp.push_back(Point(1,3));
 
     Solution sol;
     int maxp = sol.maxPoints(vp);
