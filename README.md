@@ -7,3 +7,7 @@ code snippet of algorithm, system, ne, etc.
 
 #### Operation System
 
+## branch
+
+* master is for repository
+* dev is for developing
