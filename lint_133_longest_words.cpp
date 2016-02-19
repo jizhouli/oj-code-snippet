@@ -11,7 +11,18 @@ public:
      * @return: a vector of strings
      */
     vector<string> longestWords(vector<string> &dictionary) {
-        vector<string> words = dictionary;
+        vector<string> words;
+        int max_len = 0;
+        for (vector<string>::iterator it=dictionary.begin(); it!=dictionary.end(); it++) {
+            int len = (*it).length();
+            if (len < max_len)
+                continue;
+            if (len > max_len) {
+                max_len = len;
+                words.clear();
+            }
+            words.push_back(*it);
+        }
         return words;
     }
 };
