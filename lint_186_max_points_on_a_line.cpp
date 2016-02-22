@@ -130,6 +130,7 @@ public:
 
         int max = 0;
 
+        // 2-D array define with new
         vector<vector<Fraction> > slope_table(
             size,
             vector<Fraction>(size, Fraction())
