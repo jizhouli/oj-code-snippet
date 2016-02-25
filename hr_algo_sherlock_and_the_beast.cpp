@@ -17,6 +17,25 @@ void int_decompose(vector<int> splits, int remain, int tries, vector<int> &resul
     }
 }
 
+
+
+//greedy algorithm for specific problem of 3 and 5
+string greedy_int_decompose(int n){
+    string s = "-1";
+    int max_multiple = n/3;
+    for(int i=max_multiple; i>=0; i--){
+        int remain = n - i*3;
+        if (remain%5 != 0)
+            continue;
+
+        string s1(i*3, '5');
+        string s2(remain, '3');
+        s = s1 + s2;
+        break;
+    }
+    return s;
+}
+
 int main(int argc, char* argv[]){
     int t;
     vector<int> decent_number;
@@ -27,6 +46,11 @@ int main(int argc, char* argv[]){
         decent_number.push_back(n);
     }
 
+    for(vector<int>::iterator it=decent_number.begin(); it!=decent_number.end(); it++){
+        cout << greedy_int_decompose(*it) << endl;
+    }
+
+    /*
     vector<int> splits;
     splits.push_back(3);
     splits.push_back(5);
@@ -69,6 +93,7 @@ int main(int argc, char* argv[]){
             cout << output << endl;
         }
     }
+    */
 
     return 0;
 }
