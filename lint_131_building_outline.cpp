@@ -9,23 +9,31 @@ public:
      * @return: Find the outline of those buildings
      */
     vector<vector<int> > buildingOutline(vector<vector<int> > &buildings) {
+        return bo_brute_force(buildings);
+    }
+
+    /**
+     * Lintcode: Time Limit Exceeded
+     * brute force algorithm
+     */
+    vector<vector<int> > bo_brute_force(vector<vector<int> > &buildings) {
         vector<vector<int> > outline;
         int length = 0;
         for(vector<vector<int> >::iterator it=buildings.begin(); it!=buildings.end(); it++){
             length = max((*it)[1], length);
         }
-        cout << length << endl;
+        //cout << length << endl;
 
         vector<int> horizon(length+1+1, 0);
         for(vector<vector<int> >::iterator it=buildings.begin(); it!=buildings.end(); it++){
-            for(int i=(*it)[0]; i<=(*it)[1]; i++)
-                horizon[i] = (*it)[2];
+            for(int i=(*it)[0]; i<(*it)[1]; i++)
+                horizon[i] = max((*it)[2], horizon[i]);
         }
 
         int last_height = 0;
         int start = 0;
         for(int i=1;i<horizon.size();i++){
-            cout << horizon[i] << endl;
+            //cout << horizon[i] << endl;
             if(last_height == horizon[i])
                 continue;
 
@@ -39,7 +47,7 @@ public:
             // end building
             vector<int> building(3,0);
             building[0] = start;
-            building[1] = i-1;
+            building[1] = i;
             building[2] = last_height;
             outline.push_back(building);
 
@@ -50,6 +58,7 @@ public:
 
         return outline;
     }
+
 };
 
 int main(int argc, char* argv[]){
